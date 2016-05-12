@@ -31,11 +31,17 @@ set $down k
 set $left j
 set $right semicolon
 
+
+exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+
+# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
+exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec termite
+bindsym Mod1+Return exec gnome-terminal
 
 # kill focused window
 bindsym Mod1+Shift+q kill
