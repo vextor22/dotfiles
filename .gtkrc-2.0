@@ -1,2 +1,3 @@
-gtk-theme-name = "Arc-Dark"
-gtk-font-name = "Sans 8"
+gtk-icon-theme-name = "Numix-Light"
+gtk-theme-name = "Numix-Frost"
+gtk-font-name = "Terminus 11px"
