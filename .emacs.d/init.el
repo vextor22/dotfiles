@@ -4,16 +4,16 @@
 (setq user-full-name "Matt Higgins"
       user-mail-address "matt@matthiggins.d")
 
+;; Perf
 (setq gc-cons-threshold 50000000)
 (setq large-file-warning-threshold 100000000)
 (setq exec-path-from-shell-arguments nil)
 
+;; Appearance
 (setq inhibit-startup-message t
-    initial-scratch-message ""
-    cursor-type 'bar)
-
+      initial-scratch-message ""
+      cursor-type 'bar)
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
   :config
   (exec-path-from-shell-initialize))
 
@@ -55,8 +55,8 @@
 
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
-           (abbreviate-file-name (buffer-file-name))
-         "%b"))))
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 
 (use-package gruber-darker-theme
   :ensure t
@@ -66,7 +66,7 @@
 (set-face-attribute 'default nil :family "Iosevka" :height 140)
 
 (setq-default tab-width 4
-          indent-tabs-mode nil)
+              indent-tabs-mode nil)
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 
@@ -125,3 +125,7 @@
   (setf (alist-get 'html-mode apheleia-mode-alist) 'prettier-html)
   (setf (alist-get 'mhtml-mode apheleia-mode-alist) 'prettier-html)
   (apheleia-global-mode +1))
+
+;; C Config
+(add-hook 'c-mode-hook #'eglot-ensure)
+(add-hook 'c-ts-mode-hook #'eglot-ensure)
